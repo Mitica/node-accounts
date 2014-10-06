@@ -1,0 +1,31 @@
+{
+  "name": "accounts.data",
+  "version": "0.0.1",
+  "description": "Accounts Data",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ournet/node-accounts.data.git"
+  },
+  "keywords": [
+    "accounts",
+    "accounts-data"
+  ],
+  "author": "Dumitru Cantea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ournet/node-accounts.data/issues"
+  },
+  "homepage": "https://github.com/Ournet/node-accounts.data",
+  "dependencies": {
+    "bluebird": "^2.3.4",
+    "js-yaml": "^3.2.2",
+    "jsonschema": "^1.0.0",
+    "lodash": "^2.4.1",
+    "sequelize": "^2.0.0-dev13",
+    "slug": "^0.7.1"
+  }
+}
