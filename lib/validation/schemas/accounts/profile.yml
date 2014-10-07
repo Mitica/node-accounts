@@ -10,6 +10,7 @@ properties:
     type: string
   name:
     type: object
+    additionalProperties: false
     properties:
       familyName:
         type: string

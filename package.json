@@ -29,6 +29,8 @@
     "slug": "^0.7.1"
   },
   "devDependencies": {
+    "chai": "^1.9.2",
+    "chai-as-promised": "^4.1.1",
     "pg": "^3.5.0"
   }
 }

@@ -20,7 +20,7 @@ function drop() {
 }
 
 function createApp() {
-  return AD.createApp({
+  return AD.apps.create({
     name: 'Test'
   }).then(function(app) {
     console.log('created app:');
@@ -32,11 +32,11 @@ function createApp() {
 }
 //drop();
 //sync();
-//return;
-// createApp().then(function(data) {
-//   api = data;
-// });
-
+return;
+createApp().then(function(data) {
+  api = data;
+});
+return;
 function getApi() {
   if (api) return Promise.resolve(api);
   return AD.api(appKey).then(function(data) {
