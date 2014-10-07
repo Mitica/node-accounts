@@ -21,7 +21,7 @@ function drop() {
 
 function createApp() {
   return AD.apps.create({
-    name: 'Test'
+    name: 'Test2'
   }).then(function(app) {
     console.log('created app:');
     console.log(app);
@@ -32,7 +32,7 @@ function createApp() {
 }
 //drop();
 //sync();
-return;
+//return;
 createApp().then(function(data) {
   api = data;
 });

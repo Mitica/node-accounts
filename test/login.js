@@ -3,13 +3,13 @@ var config = require('./config.json'),
   //chai = require('chai'),
   //chaiAsPromised = require('chai-as-promised'),
   //should = require('chai').should(),
-  appKey = '70802af108b726bcc25adf5f63b3d286',
+  appKey = '81070c9016b8eca1d3de7eb34358adcf',//'280bf803f37f12de9af3b32846ad47ef',
   api;
 
 //chai.use(chaiAsPromised);
 
 function loginWithProviderTest(profile, accessData) {
-  return api.accounts.loginWithProvider(profile, accessData).then(function(account) {
+  return api.accounts.providerLogin(profile, accessData).then(function(account) {
     console.log(account);
   }).error(function(error){
     throw error;
@@ -29,6 +29,7 @@ var profile = {
   displayName: 'Dumitru C',
   provider: 'goOgle',
   id: '1231231',
+  emails:[{value:'canteadumitru@gmail.com'}],
   name:{
     familyName: 'Cantea',
     givenName: 'Dumitru'
