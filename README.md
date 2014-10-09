@@ -5,7 +5,7 @@ Supports Sequelize dialects: MySQL, MariaDB, SQLite and PostgreSQL
 
 **node-accounts** works fine with profile providers(Google, Yahoo, Facebook, etc.).
 
-Current version supports just `providerLogin` method.
+Current version supports logins only with providers.
 
 ## Usage
 
@@ -29,15 +29,15 @@ Accounts.apps.create({
 var Accounts = require('accounts')(config.connection);
 // `connection` if a Sequelize connection object (connectionString or object)
 var appKey = 'ert457943346893695krjgerugui';
-var api;
+var repository;
 
-Accounts.api(appKey).then(function(result) {
-  api = result;
+Accounts.repository(appKey).then(function(result) {
+  repository = result;
   login();
 });
 
 function login(){
-  api.accounts.providerLogin(profile, accessData).then(function(account){
+  repository.providerLogin(profile, accessData).then(function(account){
     if(account)
       console.log(account);
     else
@@ -53,20 +53,37 @@ var profile = {
   displayName: 'Dumitru K'
 };
 ```
-and `accessData` is access data from the provider (can by JSON):
+and `accessData` is access data from the provider (can be JSON string):
 ```
 var accessData = {
   accessToken:'dsgsgs', refreshToken:'gerge'
 }
 ```
 
-### DB schema
-
-#### Create/drop DB schema:
+## Create/drop DB schema:
 ```
 var Accounts = require('accounts')(config.connection);
 //create db schema
 Accounts.sync();
 //drop db schema
 Accounts.drop();
+```
+
+## API
+
+API structure:
+```
+require('accounts')(config.connection): // init accounts with a connectionString
+  sync() // create DB schema
+  drop() // drop DB schema
+  apps:
+    create(appData) // create a new app
+    drop(appKey) // delete app by appKey
+    byKey(appKey) // find app by key
+  repository/api(appKey): //create a repository/api for the appKey
+    accounts:
+      byId(id) // find account by id
+      providerLogin(profile, accessData) // provider login
+    accountById(id) // similar to accounts.byId(id)
+    providerLogin(id) // similar to accounts.providerLogin(id)
 ```

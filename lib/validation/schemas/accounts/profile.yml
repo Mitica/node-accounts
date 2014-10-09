@@ -1,6 +1,6 @@
 type: object
 required: [provider, id, displayName, name]
-additionalProperties: false
+#additionalProperties: false
 properties:
   provider:
     type: string
@@ -32,3 +32,8 @@ properties:
       properties:
         value:
           type: string
+
+  _raw:
+    type: string
+  _json:
+    type: object
