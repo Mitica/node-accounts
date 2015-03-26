@@ -83,6 +83,8 @@ require('accounts')(config.connection): // init accounts with a connectionString
   repository/api(appKey): //create a repository/api for the appKey
     accounts:
       byId(id) // find account by id
+      byEmail(email) // find account by email
+      byKey(key) // find account by key
       providerLogin(profile, accessData) // provider login
     accountById(id) // similar to accounts.byId(id)
     providerLogin(id) // similar to accounts.providerLogin(id)
