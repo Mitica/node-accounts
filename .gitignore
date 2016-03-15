@@ -3,8 +3,6 @@
 #
 
 .DS_Store
-node_modules/
-out/
-Gruntfile.js
-test/config.json
-test/
+.env
+node_modules
+npm-debug.log

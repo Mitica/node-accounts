@@ -1,91 +1,90 @@
 # node-accounts
 
-**node-accounts** is a User Management module for Node.js.
-Supports Sequelize dialects: MySQL, MariaDB, SQLite and PostgreSQL
+**node-accounts** is a simple User Management module for Node.js.
 
-**node-accounts** works fine with profile providers(Google, Yahoo, Facebook, etc.).
-
-Current version supports logins only with providers.
+Current version supports logins only with providers(Google, Yahoo, Facebook, etc.).
 
 ## Usage
 
-All you need to do is to create an application, and then to use appKey for accessing accounts.
+All you need to do is to create an application, and then use appKey for managing users.
 
 #### Create a new app
 ```
-var Accounts = require('accounts')(config.connection);
-// `connection` if a Sequelize connection object (connectionString or object)
+var Accounts = require('accounts').mongo(config);
 var appKey;
 
 Accounts.apps.create({
     name: 'Test app'
   }).then(function(app) {
     appKey = app.key;
-});
+  });
 ```
 
 #### Provider login
 ```
-var Accounts = require('accounts')(config.connection);
-// `connection` if a Sequelize connection object (connectionString or object)
-var appKey = 'ert457943346893695krjgerugui';
-var repository;
+var Accounts = require('accounts').mongo(config);
+var appKey = process.env.ACOUNTS_APP_KEY;
+var AppAccounts = Accounts.api(appKey);
 
-Accounts.repository(appKey).then(function(result) {
-  repository = result;
-  login();
-});
-
-function login(){
-  repository.providerLogin(profile, accessData).then(function(account){
-    if(account)
+AppAccounts.users.login(profile)
+  .then(function(user) {
+    if (user) {
       console.log(account);
-    else
+    }
+    else {
       console.log('login faild');
+    }
   });
-}
 ```
 Where `Profile` is a Passport [User Profile](http://passportjs.org/guide/profile/)
 ```
 var profile = {
   provider: 'facebook',
   id: '123124234235123',
-  displayName: 'Dumitru K'
+  displayName: 'Dumitru K',
+  accessData: {
+    accessToken:'dsgsgs', refreshToken:'gerge'
+  }
 };
-```
-and `accessData` is access data from the provider (can be JSON string):
-```
-var accessData = {
-  accessToken:'dsgsgs', refreshToken:'gerge'
-}
-```
-
-## Create/drop DB schema:
-```
-var Accounts = require('accounts')(config.connection);
-//create db schema
-Accounts.sync();
-//drop db schema
-Accounts.drop();
 ```
 
 ## API
 
-API structure:
-```
-require('accounts')(config.connection): // init accounts with a connectionString
-  sync() // create DB schema
-  drop() // drop DB schema
-  apps:
-    create(appData) // create a new app
-    drop(appKey) // delete app by appKey
-    byKey(appKey) // find app by key
-  repository/api(appKey): //create a repository/api for the appKey
-    accounts:
-      byId(id) // find account by id
-      byEmail(email) // find account by email
-      byKey(key) // find account by key
-      providerLogin(profile, accessData) // provider login
-    accountById(id) // similar to accounts.byId(id)
-    providerLogin(id) // similar to accounts.providerLogin(id)
-```
+### .mongo(options)
+
+Creates a MongoDB client.
+
+## Client API
+
+### admin
+
+- **sync**() - Syncronize DB tables
+- **drop**(secret) - Drop DB tables. Useful for tests.
+
+### apps
+
+- **create**(data) - Create a new application.
+- **getByKey**(key) - Get an application by key.
+- **deleteByKey**(key) - Delete an application by key.
+
+### api(appKey)
+
+Creates an application Accounts object for an app key.
+
+## App Accounts API
+
+### users
+
+- **getById**(id, options) - Get an user object by id.
+- **getByUsername**(username, options) - Get an user object by username.
+- **getByKey**(key, options) - Get an user object by unique key.
+- **deleteById**(id, options) - Delete an user by id.
+- **update**(user, options) - Update user fields.
+- **login**(profile, options) - User login.
+
+### connections
+
+- **getById**(id, options) - Get an user connection by id.
+- **findByUserId**(userId, options) - Find user connections by user id.
+- **deleteById**(id, options) - Delete an user connection by id.
+- **deleteByUserId**(userId, options) - Delete user connections by user id.

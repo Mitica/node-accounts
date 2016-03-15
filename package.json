@@ -1,6 +1,6 @@
 {
   "name": "accounts",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Accounts Management module",
   "main": "lib/index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "accounts",
-    "accounts-data"
+    "users"
   ],
   "author": "Dumitru Cantea",
   "license": "ISC",
@@ -21,12 +21,10 @@
   },
   "homepage": "https://github.com/Ournet/node-accounts",
   "dependencies": {
-    "bluebird": "^2.3.4",
-    "js-yaml": "^3.2.2",
-    "jsonschema": "^1.0.0",
-    "lodash": "^2.4.1",
-    "slug": "^0.7.1",
-    "node-uuid": "^1.4.3",
-    "sequelize": "^2.0.5"
+    "atonic": "^1.0.4",
+    "bluebird": "^3.3.4",
+    "lodash": "^4.6.1",
+    "randomstring": "^1.1.4",
+    "uuid": "^2.0.1"
   }
 }
