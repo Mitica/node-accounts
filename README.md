@@ -50,7 +50,7 @@ var profile = {
 
 ## API
 
-### .mongo(options)
+### .mongo(config, options)
 
 Creates a MongoDB client.
 
