@@ -2,7 +2,7 @@
 
 var assert = require('assert');
 
-var Accounts = require('../lib').client(require('./common/storage'));
+var Accounts = require('../lib').client(require('./common/storage_mock'));
 var users = Accounts.app('123456').users;
 
 describe('Login', function() {

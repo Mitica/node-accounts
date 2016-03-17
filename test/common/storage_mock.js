@@ -3,6 +3,15 @@
 var utils = require('../../lib/utils');
 var Promise = utils.Promise;
 
+exports.admin = {
+	sync: function() {
+		return Promise.resolve();
+	},
+	drop: function() {
+		return Promise.resolve();
+	}
+};
+
 exports.connections = {
 	getById: function(appId, id) {
 		return Promise.resolve();
