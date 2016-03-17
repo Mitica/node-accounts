@@ -4,7 +4,7 @@
   "description": "Accounts Management module",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "./node_modules/mocha/bin/mocha -R spec -t 8000"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,12 @@
   "dependencies": {
     "atonic": "^1.0.4",
     "bluebird": "^3.3.4",
+    "debug": "^2.2.0",
     "lodash": "^4.6.1",
     "randomstring": "^1.1.4",
     "uuid": "^2.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
   }
 }
