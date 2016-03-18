@@ -24,12 +24,12 @@ Accounts.apps.create({
 ```
 var Accounts = require('accounts').client(storage);
 var appId = process.env.ACCOUNTS_APP_ID;
-var AppAccounts = Accounts.app(appId);
+var App = Accounts.app(appId);
 
-AppAccounts.users.login(profile)
+App.login(profile)
   .then(function(user) {
     if (user) {
-      console.log(account);
+      console.log(user);
     }
     else {
       console.log('login faild');
@@ -73,20 +73,21 @@ Creates a new Application Client object for a given app id.
 
 ## Application Client API
 
+### login(profile, options) - User login.
+
 ### users
 
+- **create**(user, options) - Create a new user.
+- **deleteById**(id, options) - Delete an user by id.
 - **getById**(id, options) - Get an user object by id.
 - **getByUsername**(username, options) - Get an user object by username.
-- **getByKey**(key, options) - Get an user object by unique key.
-- **create**(user, options) - Create a new user.
 - **update**(user, options) - Update user fields.
-- **login**(profile, options) - User login.
-- **deleteById**(id, options) - Delete an user by id.
 
 ### connections
 
-- **getById**(id, options) - Get an user connection by id.
-- **findByUserId**(userId, options) - Find user connections by user id.
 - **create**(connection, options) - Create a new connection.
 - **deleteById**(id, options) - Delete an user connection by id.
 - **deleteByUserId**(userId, options) - Delete user connections by user id.
+- **findByUserId**(userId, options) - Find user connections by user id.
+- **getById**(id, options) - Get an user connection by id.
+- **update**(data, options) - Update connection fields.

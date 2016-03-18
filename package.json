@@ -2,7 +2,7 @@
   "name": "accounts",
   "version": "0.1.0",
   "description": "Accounts Management module",
-  "main": "lib/client.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha -R spec -t 8000",
     "docs": "jsdoc -d ./docs/ ./lib/*"
