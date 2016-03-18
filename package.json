@@ -2,9 +2,10 @@
   "name": "accounts",
   "version": "0.1.0",
   "description": "Accounts Management module",
-  "main": "lib/index.js",
+  "main": "lib/client.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha -R spec -t 8000"
+    "test": "./node_modules/mocha/bin/mocha -R spec -t 8000",
+    "docs": "jsdoc -d ./docs/ ./lib/*"
   },
   "repository": {
     "type": "git",
