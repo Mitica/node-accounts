@@ -3,7 +3,7 @@
 var assert = require('assert');
 var storage = require('./common/storage_mock');
 var Accounts = require('../lib').client(storage);
-var App = Accounts.app('123456');
+var App = Accounts.api('123456');
 
 describe('Login', function() {
 	it('should login with provider', function() {
