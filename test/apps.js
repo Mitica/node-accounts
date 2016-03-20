@@ -2,13 +2,28 @@
 
 var assert = require('assert');
 
-var Accounts = require('../lib').client(require('./common/storage_mock'));
+var storage = require('./common/mongo_storage') || require('./common/storage_mock');
+
+var Accounts = require('../lib').client(storage);
+var utils = require('../lib/utils');
+var appId;
 
 describe('Apps', function() {
-	it('should exist `create` method', function() {
-		assert.equal('function', typeof Accounts.apps.create);
+
+	it('should `create` a new app', function() {
+		return Accounts.apps.create({
+				name: utils.randomString(32)
+			})
+			.then(function(app) {
+				assert.ok(app);
+				appId = app.id;
+			});
 	});
-	it('should exist `getById` method', function() {
-		assert.equal('function', typeof Accounts.apps.getById);
+	it('should `getById`', function() {
+		return Accounts.apps.getById(appId)
+			.then(function(app) {
+				assert.ok(app);
+				assert.equal(appId, app.id);
+			});
 	});
 });

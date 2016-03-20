@@ -30,7 +30,6 @@ exports.users = {
 		return Promise.resolve();
 	},
 	create: function(appId, data) {
-		data.id = uuid();
 		return Promise.resolve(data);
 	},
 	getByUsername: function(appId, username) {
