@@ -22,7 +22,7 @@ Accounts.apps.create({
 
 #### Provider login
 ```
-var Accounts = require('accounts').client(storage);
+var Accounts = require('accounts')(storage);
 var appId = process.env.ACCOUNTS_APP_ID;
 var App = Accounts.app(appId);
 
@@ -50,7 +50,7 @@ var profile = {
 
 ## API
 
-### client(storage, options)
+### (storage, options)
 
 Creates a new Client.
 

@@ -6,7 +6,7 @@ var options = {
 	secret: 'correct secret'
 };
 
-var Accounts = require('../lib').client(storage, options);
+var Accounts = require('../lib')(storage, options);
 
 describe('Admin', function() {
 	it('should exist `sync` method', function() {
