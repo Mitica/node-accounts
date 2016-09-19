@@ -10,7 +10,7 @@ All you need to do is to create an application, and then use appId for managing 
 
 #### Create a new app
 ```
-var Accounts = require('accounts').client(storage);
+var Accounts = require('accounts')(storage);
 var appId;
 
 Accounts.apps.create({
