@@ -64,30 +64,28 @@ Creates a new Client.
 ### apps
 
 - **create**(data) - Create a new application.
-- **getByKey**(key) - Get an application by key.
-- **deleteByKey**(key) - Delete an application by key.
+- **getById**(id) - Get an application by id.
 
 ### app(appId)
 
-Creates a new Application Client object for a given app id.
+Creates a new Application Client for a given app id.
 
 ## Application Client API
 
-### login(profile, options) - User login.
+### login(type, data, options) - User login.
 
 ### users
 
-- **create**(user, options) - Create a new user.
-- **deleteById**(id, options) - Delete an user by id.
+- **create**(data, options) - Create a new user.
 - **getById**(id, options) - Get an user object by id.
-- **getByUsername**(username, options) - Get an user object by username.
-- **update**(user, options) - Update user fields.
+- **update**(data, options) - Update user fields.
+- **deleteById**(id, options) - Delete an user by id.
 
-### connections
+### identities
 
-- **create**(connection, options) - Create a new connection.
-- **deleteById**(id, options) - Delete an user connection by id.
-- **deleteByUserId**(userId, options) - Delete user connections by user id.
-- **findByUserId**(userId, options) - Find user connections by user id.
-- **getById**(id, options) - Get an user connection by id.
-- **update**(data, options) - Update connection fields.
+- **create**(data, options) - Create a new identity.
+- **getById**(id, options) - Get an user identity by id.
+- **findByUserId**(userId, options) - Find user identities by user id.
+- **update**(data, options) - Update an identity.
+- **deleteById**(id, options) - Delete an user identity by id.
+- **deleteByUserId**(userId, options) - Delete user identities by user id.

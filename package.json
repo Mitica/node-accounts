@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/Ournet/node-accounts",
   "dependencies": {
-    "atonic": "^1.0.4",
     "bluebird": "^3.3.4",
     "debug": "^2.2.0",
     "joi": "^6.10.1",

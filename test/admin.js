@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-var storage = require('./common/mongo_storage') || require('./common/storage_mock');
+var storage = require('./common/dynamo_storage') || require('./common/storage_mock');
 var options = {
 	secret: 'correct secret'
 };
