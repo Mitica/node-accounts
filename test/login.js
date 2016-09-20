@@ -6,13 +6,21 @@ var Accounts = require('../lib')(storage);
 var App = Accounts.api('123456cihurehgiuehnrugivenrio');
 
 describe('Login', function() {
+
+	before(function() {
+		return storage.admin.sync();
+	});
+
+	// after(function() {
+	// 	return storage.admin.drop();
+	// });
+
 	it('should login with provider', function() {
-		return App.login({
+		return App.login('social', {
 			id: '21312423',
 			provider: 'google',
 			username: 'Ion',
-			emails: [{ value: 'email@mail.com' }],
-			accessData: JSON.stringify({ token: 'secret' })
+			emails: [{ value: 'email@mail.com' }]
 		}).then(function(userId) {
 			assert.ok(userId);
 			// return App.users.getById(userId)

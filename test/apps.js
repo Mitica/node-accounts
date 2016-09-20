@@ -10,6 +10,10 @@ var appId;
 
 describe('Apps', function() {
 
+	before(function() {
+		return storage.admin.sync();
+	});
+
 	it('should `create` a new app', function() {
 		return Accounts.apps.create({
 				name: utils.randomString(32)
