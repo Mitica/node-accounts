@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ournet/node-accounts.git"
+    "url": "https://github.com/Mitica/node-accounts.git"
   },
   "keywords": [
     "accounts",
@@ -18,9 +18,9 @@
   "author": "Dumitru Cantea",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ournet/node-accounts/issues"
+    "url": "https://github.com/Mitica/node-accounts/issues"
   },
-  "homepage": "https://github.com/Ournet/node-accounts",
+  "homepage": "https://github.com/Mitica/node-accounts",
   "dependencies": {
     "bluebird": "^3.3.4",
     "debug": "^2.2.0",

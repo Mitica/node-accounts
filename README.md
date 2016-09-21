@@ -10,7 +10,7 @@ All you need to do is to create an application, and then use appId for managing 
 
 #### Create a new app
 ```
-var Accounts = require('accounts')(storage);
+var Accounts = require('accounts')(storage, options);
 var appId;
 
 Accounts.apps.create({
@@ -89,3 +89,9 @@ Creates a new Application Client for a given app id.
 - **update**(data, options) - Update an identity.
 - **deleteById**(id, options) - Delete an user identity by id.
 - **deleteByUserId**(userId, options) - Delete user identities by user id.
+
+
+## Storages
+
+- DynamoDB: [dynamo-accounts](https://github.com/Mitica/dynamo-accounts);
+- MongoDB: [mongo-accounts](https://github.com/Mitica/mongo-accounts);
