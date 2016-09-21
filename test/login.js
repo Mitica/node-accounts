@@ -1,20 +1,13 @@
 'use strict';
 
+require('./common/init');
+
 var assert = require('assert');
 var storage = require('./common/dynamo_storage') || require('./common/storage_mock');
 var Accounts = require('../lib')(storage);
-var App = Accounts.api('123456cihurehgiuehnrugivenrio');
+var App = Accounts.app('123456cihurehgiuehnrugivenrio');
 
 describe('Login', function() {
-
-	before(function() {
-		return storage.admin.sync();
-	});
-
-	// after(function() {
-	// 	return storage.admin.drop();
-	// });
-
 	it('should login with provider', function() {
 		return App.login('social', {
 			id: '21312423',

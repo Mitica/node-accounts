@@ -2,7 +2,6 @@
 
 var utils = require('../../lib/utils');
 var Promise = utils.Promise;
-var uuid = require('uuid').v4;
 
 exports.admin = {
 	sync: function() {
@@ -13,7 +12,16 @@ exports.admin = {
 	}
 };
 
-exports.connections = {
+exports.apps = {
+	create: function(data) {
+		return Promise.resolve(data);
+	},
+	getById: function(id) {
+		return Promise.resolve({ id: id });
+	}
+};
+
+exports.identities = {
 	getById: function(appId, id) {
 		return Promise.resolve();
 	},
@@ -31,9 +39,6 @@ exports.users = {
 	},
 	create: function(appId, data) {
 		return Promise.resolve(data);
-	},
-	getByUsername: function(appId, username) {
-		return Promise.resolve();
 	},
 	update: function(appId, data) {
 		return Promise.resolve(data);

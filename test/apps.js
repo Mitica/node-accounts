@@ -1,5 +1,7 @@
 'use strict';
 
+require('./common/init');
+
 var assert = require('assert');
 
 var storage = require('./common/dynamo_storage') || require('./common/storage_mock');
@@ -9,10 +11,6 @@ var utils = require('../lib/utils');
 var appId;
 
 describe('Apps', function() {
-
-	before(function() {
-		return storage.admin.sync();
-	});
 
 	it('should `create` a new app', function() {
 		return Accounts.apps.create({

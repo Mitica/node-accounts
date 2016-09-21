@@ -26,7 +26,7 @@ var Accounts = require('accounts')(storage);
 var appId = process.env.ACCOUNTS_APP_ID;
 var App = Accounts.app(appId);
 
-App.login(profile)
+App.login('social', profile)
   .then(function(user) {
     if (user) {
       console.log(user);

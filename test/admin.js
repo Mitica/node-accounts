@@ -1,5 +1,7 @@
 'use strict';
 
+require('./common/init');
+
 var assert = require('assert');
 var storage = require('./common/dynamo_storage') || require('./common/storage_mock');
 var options = {
@@ -36,7 +38,11 @@ describe('Admin', function() {
 	it('should sync accounts DB', function() {
 		return Accounts.admin.sync();
 	});
-	it('should drop accounts DB', function() {
-		return Accounts.admin.drop('iam-sure', options).delay(10000);
-	});
+	// it('should drop accounts DB', function() {
+	// 	return Accounts.admin.drop('iam-sure')
+	// 		.delay(60000)
+	// 		.then(function() {
+	// 			Accounts.admin.sync();
+	// 		});
+	// });
 });
